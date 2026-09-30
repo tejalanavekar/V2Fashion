@@ -1,0 +1,13 @@
+---
+interface Props {
+  label: "Ready to ship" | "New";
+}
+
+const { label } = Astro.props;
+---
+
+<span
+  class="rounded-full bg-primary px-3 py-1.5 text-xs font-semibold tracking-[0.04em] text-white"
+>
+  {label}
+</span>

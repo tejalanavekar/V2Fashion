@@ -1,0 +1,13 @@
+{
+  "name": "v2fashion",
+  "private": true,
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@12.8.1",
+  "scripts": {
+    "dev:web": "pnpm --filter @v2fashion/web dev",
+    "build:web": "pnpm --filter @v2fashion/web build"
+  }
+}

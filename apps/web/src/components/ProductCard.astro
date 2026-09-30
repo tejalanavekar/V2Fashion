@@ -1,0 +1,61 @@
+---
+import Badge from "./Badge.astro";
+
+interface Props {
+  categoryLabel: string;
+  name: string;
+  priceInPaise: number;
+  shippingText: string;
+  badge?: "Ready to ship" | "New";
+  placeholderGradient: string;
+  placeholderLabel: string;
+}
+
+const {
+  categoryLabel,
+  name,
+  priceInPaise,
+  shippingText,
+  badge,
+  placeholderGradient,
+  placeholderLabel,
+} = Astro.props;
+
+const price = new Intl.NumberFormat("en-IN", {
+  style: "currency",
+  currency: "INR",
+  maximumFractionDigits: 0,
+}).format(priceInPaise / 100);
+---
+
+<article class="flex flex-col overflow-hidden rounded-2xl bg-surface">
+  <div class="relative h-[400px]" style={{ background: placeholderGradient }}>
+    {badge && (
+      <div class="absolute left-3.5 top-3.5">
+        <Badge label={badge} />
+      </div>
+    )}
+    <button
+      type="button"
+      aria-label="Add to wishlist"
+      class="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full border-0 bg-white/92 text-ink"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round">
+        <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path>
+      </svg>
+    </button>
+    <span class="absolute bottom-3.5 left-3.5 rounded-md bg-white/88 px-2.5 py-1 text-xs text-[#2A1A17]">
+      {placeholderLabel}
+    </span>
+  </div>
+  <div class="flex flex-col gap-1.5 px-5 pt-4.5 pb-5.5">
+    <span class="text-xs font-semibold uppercase tracking-[0.1em] text-primary">
+      {categoryLabel}
+    </span>
+    <span class="text-lg font-medium leading-snug">{name}</span>
+    <div class="mt-1 flex items-baseline justify-between">
+      <span class="text-xl font-semibold">{price}</span>
+      <span class="text-[13px] text-muted">{shippingText}</span>
+    </div>
+  </div>
+</article>

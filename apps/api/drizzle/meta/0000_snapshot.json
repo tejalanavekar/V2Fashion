@@ -1,0 +1,117 @@
+{
+  "id": "7b2cd8e2-8435-4f96-8efe-4cb43b5c5fb9",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "catalog.products": {
+      "name": "products",
+      "schema": "catalog",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "category": {
+          "name": "category",
+          "type": "category",
+          "typeSchema": "catalog",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category_label": {
+          "name": "category_label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_in_paise": {
+          "name": "price_in_paise",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "shipping_text": {
+          "name": "shipping_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "badge": {
+          "name": "badge",
+          "type": "badge",
+          "typeSchema": "catalog",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "placeholder_gradient": {
+          "name": "placeholder_gradient",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "placeholder_label": {
+          "name": "placeholder_label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "catalog.badge": {
+      "name": "badge",
+      "schema": "catalog",
+      "values": [
+        "Ready to ship",
+        "New"
+      ]
+    },
+    "catalog.category": {
+      "name": "category",
+      "schema": "catalog",
+      "values": [
+        "women",
+        "men",
+        "kids",
+        "jewellery"
+      ]
+    }
+  },
+  "schemas": {
+    "catalog": "catalog"
+  },
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -1,0 +1,207 @@
+---
+//actual home page which brings all pieces fit together
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProductCard from "../components/ProductCard.astro";
+
+const trustPoints = [
+  { title: "UPI, cards & netbanking", subtitle: "Secure online payment" },
+  { title: "Delivery dates in 24 hours", subtitle: "Confirmed after you order" },
+  { title: "Exchange within 7 days", subtitle: "For size or damage" },
+  { title: "Ready-to-ship pieces", subtitle: "Dispatched in 1–2 days" },
+];
+
+const categories = [
+  {
+    name: "Women",
+    subtitle: "Sarees · Kurtis · Lehengas",
+    href: "#",
+    gradient: "repeating-linear-gradient(135deg, #9B1C2E 0 18px, #C8963E 18px 36px)",
+    placeholderLabel: "[Photo: woman in a silk saree]",
+  },
+  {
+    name: "Men",
+    subtitle: "Kurtas · Sherwanis · Jackets",
+    href: "#",
+    gradient: "repeating-linear-gradient(135deg, #3B3F58 0 18px, #B89B5E 18px 36px)",
+    placeholderLabel: "[Photo: man in a festive kurta]",
+  },
+  {
+    name: "Kids",
+    subtitle: "Lehengas · Kurta sets · Frocks",
+    href: "#",
+    gradient: "repeating-linear-gradient(135deg, #D9704F 0 18px, #EFC98A 18px 36px)",
+    placeholderLabel: "[Photo: child in a kurta set]",
+  },
+  {
+    name: "Jewellery",
+    subtitle: "Necklaces · Earrings · Bangles",
+    href: "#",
+    gradient: "repeating-linear-gradient(135deg, #6B4E1E 0 18px, #D4AF37 18px 36px)",
+    placeholderLabel: "[Photo: kundan necklace set]",
+  },
+];
+
+const festiveFavourites = [
+  {
+    categoryLabel: "Saree",
+    name: "Red Banarasi Silk Saree with Zari Border",
+    priceInPaise: 349900,
+    shippingText: "Ships in 1–2 days",
+    badge: "Ready to ship" as const,
+    placeholderGradient: "repeating-linear-gradient(135deg, #9B1C2E 0 16px, #C8963E 16px 32px)",
+    placeholderLabel: "[Product photo]",
+  },
+  {
+    categoryLabel: "Saree",
+    name: "Green Kanjivaram Silk Saree",
+    priceInPaise: 599900,
+    shippingText: "Arrives in 6–10 days",
+    placeholderGradient: "repeating-linear-gradient(135deg, #1F5E3B 0 16px, #C9A443 16px 32px)",
+    placeholderLabel: "[Product photo]",
+  },
+  {
+    categoryLabel: "Kurta set",
+    name: "Mustard Chanderi Cotton Kurta Set",
+    priceInPaise: 189900,
+    shippingText: "Arrives in 6–10 days",
+    badge: "New" as const,
+    placeholderGradient: "repeating-linear-gradient(135deg, #C99A2E 0 16px, #8A5A1C 16px 32px)",
+    placeholderLabel: "[Product photo]",
+  },
+  {
+    categoryLabel: "Jewellery",
+    name: "Kundan Choker Set with Earrings",
+    priceInPaise: 185000,
+    shippingText: "Ships in 1–2 days",
+    badge: "Ready to ship" as const,
+    placeholderGradient: "repeating-linear-gradient(135deg, #6B4E1E 0 16px, #D4AF37 16px 32px)",
+    placeholderLabel: "[Product photo]",
+  },
+];
+---
+
+<BaseLayout title="V2Fashion — Draped in tradition, made for today">
+  <div class="flex min-h-screen flex-col bg-bg text-ink">
+    <Header cartCount={2} />
+
+    <section
+      class="relative flex h-[620px] shrink-0 items-center px-24 box-border"
+      style={{
+        background:
+          "linear-gradient(90deg, rgba(18,6,8,0.72) 0%, rgba(18,6,8,0.45) 45%, rgba(18,6,8,0.05) 80%), repeating-linear-gradient(135deg, #8E1F50 0 26px, #AC2F66 26px 52px)",
+      }}
+    >
+      <div class="flex max-w-[640px] flex-col gap-6">
+        <span
+          class="self-start rounded-full border border-accent-on-dark px-4 py-2 text-sm font-medium uppercase tracking-[0.08em] text-accent-on-dark"
+        >
+          Festive &amp; wedding edit 2026
+        </span>
+        <h1 class="m-0 font-display text-[80px] font-semibold leading-[1.02] text-white">
+          Draped in tradition, made for today
+        </h1>
+        <p class="m-0 text-xl leading-relaxed text-white/90">
+          Sarees, kurtis, lehengas, men's kurtas, kidswear and jewellery, handpicked for every
+          celebration.
+        </p>
+        <div class="mt-2 flex gap-4">
+          <a
+            href="#"
+            class="inline-flex h-14 items-center gap-2.5 rounded-lg bg-accent-on-dark px-7.5 text-[17px] font-semibold text-[#1E1408] no-underline"
+          >
+            Shop the festive edit
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="inline-flex h-14 items-center rounded-lg border-[1.5px] border-white/85 px-7 text-[17px] font-medium text-white no-underline"
+          >
+            Explore jewellery
+          </a>
+        </div>
+      </div>
+      <span class="absolute bottom-7 right-10 rounded-md bg-white/88 px-3 py-1.5 text-[13px] text-[#2A1A17]">
+        [Hero photo: model in a festive Banarasi saree]
+      </span>
+    </section>
+
+    <section class="shrink-0 border-b border-line bg-surface px-16 box-border">
+      <div class="grid h-24 grid-cols-4 items-center gap-6">
+        {
+          trustPoints.map((point) => (
+            <div class="flex items-center gap-3.5">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-soft text-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12l4 4L19 7"></path>
+                </svg>
+              </span>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-[15px] font-semibold">{point.title}</span>
+                <span class="text-[13px] text-muted">{point.subtitle}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="flex shrink-0 flex-col gap-12 px-16 py-24 box-border">
+      <div class="flex flex-col items-center gap-2.5">
+        <span class="h-0.5 w-14 bg-accent"></span>
+        <h2 class="m-0 font-display text-[52px] font-semibold text-ink">Shop by category</h2>
+        <p class="m-0 text-lg text-muted">Find the right look for everyone at the celebration</p>
+      </div>
+      <div class="grid grid-cols-4 gap-7">
+        {
+          categories.map((category) => (
+            <a
+              href={category.href}
+              class="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface text-ink no-underline"
+            >
+              <div class="relative h-[380px]" style={{ background: category.gradient }}>
+                <span class="absolute bottom-3.5 left-3.5 rounded-md bg-white/88 px-2.5 py-1 text-xs text-[#2A1A17]">
+                  {category.placeholderLabel}
+                </span>
+              </div>
+              <div class="flex items-center justify-between gap-3 px-5.5 pb-5.5 pt-5">
+                <div class="flex flex-col gap-1">
+                  <span class="font-display text-3xl font-semibold">{category.name}</span>
+                  <span class="text-sm text-muted">{category.subtitle}</span>
+                </div>
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-primary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M5 12h14M13 6l6 6-6 6"></path>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="flex shrink-0 flex-col gap-11 bg-soft px-16 pb-26 pt-22 box-border">
+      <div class="flex items-end justify-between">
+        <div class="flex flex-col gap-2">
+          <h2 class="m-0 font-display text-[52px] font-semibold">Festive favourites</h2>
+          <p class="m-0 text-lg text-muted">Handpicked for this season</p>
+        </div>
+        <a href="#" class="inline-flex min-h-11 items-center gap-2 text-base font-semibold text-primary no-underline">
+          View all
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-4 gap-7">
+        {festiveFavourites.map((product) => <ProductCard {...product} />)}
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</BaseLayout>
